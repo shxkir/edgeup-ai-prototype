@@ -1,0 +1,19 @@
+# Dependencies and build artifacts
+node_modules/
+**/node_modules/
+target/
+**/target/
+python_ai/__pycache__/
+**/__pycache__/
+*.pyc
+
+# Virtual environments and local data
+python_ai/venv/
+python_ai/chroma_db/
+python_ai/chroma_db_upsc/
+
+# OS files
+.DS_Store
+
+# Next.js build output
+frontend/.next/
