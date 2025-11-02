@@ -19,12 +19,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} min-h-screen bg-background text-foreground`}>
+      <body className={`${inter.variable} ${playfair.variable} min-h-screen bg-background text-foreground site-noise`}>
         <ThemeProvider>
           <QueryProvider>
             <div className="flex min-h-screen flex-col">
+              <div className="pointer-events-none fixed inset-0 -z-10 opacity-60">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18),_transparent_55%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(35,54,107,0.25),_transparent_50%)]" />
+              </div>
               <SiteHeader />
-              <main className="container flex-1 py-10">{children}</main>
+              <main className="container flex-1 py-12 md:py-16">{children}</main>
               <SiteFooter />
             </div>
             <Toaster />

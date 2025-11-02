@@ -27,32 +27,32 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 backdrop-blur bg-background/80">
-      <div className="container flex h-16 items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 w-full bg-transparent">
+      <div className="container mt-6 flex items-center justify-between gap-4 rounded-2xl border border-white/40 bg-white/60 px-4 py-3 shadow-lg backdrop-blur-lg transition hover:border-white/60 dark:border-white/10 dark:bg-background/70">
         <div className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="EdgeUp AI" width={36} height={36} className="rounded-lg" />
+          <Image src="/logo.svg" alt="EdgeUp AI" width={44} height={44} className="rounded-xl shadow-sm" />
           <div className="flex flex-col">
-            <span className="font-serif text-lg font-semibold text-primary">EdgeUp AI</span>
-            <span className="text-xs text-muted-foreground">UPSC mastery, accelerated</span>
+            <span className="font-serif text-xl font-semibold text-primary">EdgeUp AI</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">UPSC excellence studio</span>
           </div>
         </div>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-2 rounded-full border border-border/60 bg-background/60 px-2 py-1.5 shadow-sm md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link key={item.href} href={item.href} className="text-sm font-medium">
                 <span
                   className={cn(
-                    "relative pb-1 text-muted-foreground transition-colors hover:text-primary",
-                    isActive && "text-primary"
+                    "relative inline-flex items-center justify-center rounded-full px-3 py-1 text-muted-foreground transition-colors hover:text-primary",
+                    isActive && "bg-primary/10 text-primary shadow-sm"
                   )}
                 >
                   {item.label}
                   {isActive ? (
                     <motion.span
-                      layoutId="nav-underline"
-                      className="absolute left-0 right-0 -bottom-0.5 h-0.5 rounded-full bg-primary"
+                      layoutId="nav-pill"
+                      className="absolute inset-0 -z-10 rounded-full bg-primary/10"
                     />
                   ) : null}
                 </span>
@@ -61,9 +61,9 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
-          <Button asChild size="sm" className="bg-primary text-primary-foreground">
+          <Button asChild size="sm" className="bg-primary text-primary-foreground shadow-md shadow-primary/30">
             <Link href="/practice">Start Practice</Link>
           </Button>
         </div>
@@ -81,9 +81,9 @@ export function SiteHeader() {
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
-            className="overflow-hidden border-t border-border/60 md:hidden"
+            className="overflow-hidden md:hidden"
           >
-            <div className="container flex flex-col py-4">
+            <div className="container mt-4 flex flex-col rounded-2xl border border-border/60 bg-background/80 p-4 shadow-lg backdrop-blur">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -98,7 +98,7 @@ export function SiteHeader() {
                   </Link>
                 );
               })}
-              <Button asChild className="mt-4">
+              <Button asChild className="mt-4" size="lg">
                 <Link href="/practice" onClick={() => setOpen(false)}>
                   Start Practice
                 </Link>
