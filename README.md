@@ -1,6 +1,6 @@
 # edgeup-ai-prototype
 
-Prototype AI agent for EdgeUp internship project, built by Ismaiel.
+Prototype AI agent for EdgeUp  project, built by Ismaiel.
 
 ## Overview
 
