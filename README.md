@@ -4,7 +4,7 @@ Prototype AI agent for EdgeUp  project, built by Ismaiel.
 
 ## Overview
 
-This repository contains a prototype AI backend for EdgeUp, an AI powered study companion that personalizes exam preparation by profiling learners and adapting content. The goal of this project is to scaffold a microservice architecture that can be extended during the internship.
+This repository contains a prototype AI backend for EdgeUp, an AI powered study companion that personalizes exam preparation by profiling learners and adapting content. The goal of this project is to scaffold a microservice architecture that can be extended.
 
 ## Objectives
 
