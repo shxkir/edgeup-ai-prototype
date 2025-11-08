@@ -55,3 +55,15 @@ To run the EdgeUp AI prototype locally and access the API endpoints, follow thes
      -d '{"name": "Ismaiel"}' http://localhost:8080/api/profile  
    ```  
 These steps will start the Python AI service and the Rust gateway, allowing you to access the EdgeUp API locally.
+
+## API Endpoints
+
+The Python AI service exposes several endpoints (accessible via the Rust gateway at `/api/`):  
+- `GET /` – Returns a simple message to confirm the AI service is running.  
+- `POST /profile` – Accepts a JSON body with `answers` (a list of integers). It returns a personality profile classification—`analytical`, `creative`, or `balanced`—based on the average score.  
+- `POST /quiz` – Accepts a JSON body with `topic` (string) and `difficulty` (integer between 1 and 5). Returns a set of quiz questions tailored to the topic and difficulty.  
+- `POST /study-plan` – Accepts `strengths` and `weaknesses` lists and returns a simple two‑day study plan mapping tasks to days.  
+- `POST /add_doc` – Accepts `doc_id` and `text` fields to store a document in the vector store for retrieval‑augmented generation (RAG). Returns a status and the document ID.  
+- `POST /ask` – Accepts a `question` string. Embeds the question and retrieves the top matching documents from the vector store, returning their IDs, text and distance scores.  
+
+When using the Rust gateway, prefix each endpoint with `/api` (e.g., `POST http://localhost:8080/api/profile`, `POST http://localhost:8080/api/quiz`, etc.) and include an `X-API-KEY` header matching the key defined in the gateway environment variables.
